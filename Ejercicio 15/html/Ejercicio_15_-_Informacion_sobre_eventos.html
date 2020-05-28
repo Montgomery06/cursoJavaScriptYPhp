@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Ejercicio 15 - Información sobre eventos</title>
+<style type="text/css">
+body {font-family: arial, helvetica;}
+#info {width:160px; border:thin solid silver; padding:.5em; position:fixed;}
+#info h1 {margin: 0;}
+</style>
+<script type="text/javascript">
+function muestraInformacion(h1,navegador,pagina) {
+	var contenedor = document.getElementById("info");
+
+	if( h1 == 'Ratón'){
+		contenedor.style.backgroundColor = '#FFFFCC';
+	}else if (h1 == 'Teclado') {
+		contenedor.style.backgroundColor = '#CCE6FF';
+	}
+
+	document.getElementById("info").innerHTML = '<h1>'+h1+'</h1>' + '<p>'+navegador+'</p>' + '<p>'+pagina+'</p>';
+}
+function manejadorEventos(event){
+	var evento = event || window.event;  
+
+	var navegador = 'Navegador ['+event.screenX+','+event.screenY+']';
+
+	var pagina = 'Pagina ['+event.clientX+','+event.clientY+']';
+
+ 	console.log(navegador);
+	console.log(pagina);
+
+	switch(evento.type){
+		case 'mouseover':
+			console.log(evento);
+			muestraInformacion('Ratón',navegador,pagina);
+		break;
+		case 'mouseout':
+			console.log(evento);
+			muestraInformacion('Ratón',navegador,pagina);
+		break; 
+	}
+}
+
+function muestraInf(event){
+	var evento = event || window.event;
+
+	var caracter = 'Codigo ['+evento.keyCode+']';
+	var codigo = 'Carácter ['+ evento.key + ']';
+
+	console.log(caracter);
+	console.log(codigo);
+
+	if(evento.key){
+		muestraInformacion('Teclado',caracter,codigo);
+	}
+}
+
+window.onload = function(){
+	document.getElementsByTagName('body')[0].onmouseover = manejadorEventos; 
+	document.onkeypress = muestraInf;
+	//document.onclick = manejadorMouse;
+}
+
+
+ 
+
+</script>
+</head>
+<body>
+<div id="info"></div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+</body></html>
