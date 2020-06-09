@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Proyecto final</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<style type="text/css"> </style>
+	<script type="text/javascript"> 
+
+	 var minimumvalue = 1;
+
+
+	function rezice(imagen){
+			console.log(imagen)
+			imagen.style.width = '22.5%'; 
+			imagen.style.border = 'solid black 5px'
+		}
+	function original(imagen){
+			console.log(imagen) 
+			imagen.style.width = '20%'; 
+			imagen.style.border = '0px'
+		}
+
+
+	function soloNumeros(cadena){
+		var letras = 'abcdefghijklmnopqrstxyz';
+
+		for (var i = 0; i < cadena.length; i++) {
+			for (var i = 0; i < letras.length; i++) {
+				if (letras[i] == cadena[i]) {
+					return false;
+				}
+			}
+		}  
+		return true;
+	}
+
+	function validate(e){
+	
+		var dn = document.formulariod4.d4.value;
+		var dm = document.formulariod4.dr.value;
+		
+		if(!soloNumeros(dn)){
+			alert("Verificar el Nbr") 
+			return false;
+		}
+
+		if(!soloNumeros(dm) && dm != null){
+			alert("Verificar el Modifer") 
+			return false;
+		}
+
+	
+	}
+
+
+	function rolld4() {
+	       
+	   var d4rolls = parseInt(document.formulariod4.d4.value);  
+	   var d4rod = parseInt(document.formulariod4.d4ro.value);  
+	   var dtotal = "";
+	   var d4res = 0;
+	   var rtotal = document.getElementById('texto').value; 
+	  
+	
+		if (document.formulariod4.d4r_1.checked) {
+			d4pm = 0
+		}else{
+			d4pm = 1
+		}
+		
+
+		if (d4pm == 0) {
+	        dtotal = dtotal + "Roll(" + d4rolls.toString() + "d4" + ")+" +  d4rod.toString() + ":\n" 
+		}	
+
+		if (d4pm == 1) {
+	        dtotal = dtotal +  "Roll(" + d4rolls.toString() + "d4" + ")-" +  d4rod.toString() + ":\n" 
+		}	
+		
+		for (r=0; r<d4rolls; r++) {
+	       var d4 = Math.floor((Math.random() * 4) + 1);	
+	       d4res = d4res + d4;	
+		   dtotal = dtotal + d4.toString() + ","	
+	  	}
+
+		if (d4pm == 0) {
+	       d4res = d4res + d4rod;	
+		   dtotal = dtotal + "+" + d4rod + "\n" + "Total:" + d4res	
+		}	
+	 
+		if (d4pm == 1) {
+	       d4res = d4res - d4rod;
+		   if (d4res <= minimumvalue) {
+		      d4res = minimumvalue;
+			  }	
+		   dtotal = dtotal + "-" + d4rod + "\n" + "Total:" + d4res	
+		}	
+
+	   document.formulariod4.d4rs.value = d4res;	
+	   rtotal = dtotal + "\n\n" + rtotal;  
+	   document.getElementById('texto').value = rtotal;	
+	}
+
+	function rolld6() {
+	       
+	   var d6rolls = parseInt(document.formulariod6.d6.value);  
+	   var d6rod = parseInt(document.formulariod6.d6ro.value);  
+	   var dtotal = "";
+	   var d6res = 0;
+	   var rtotal = document.getElementById('texto').value; 
+	  
+	
+		if (document.formulariod6.d6r_1.checked) {
+			d6pm = 0
+		}else{
+			d6pm = 1
+		}
+		
+
+		if (d6pm == 0) {
+	        dtotal = dtotal + "Roll(" + d6rolls.toString() + "d6" + ")+" +  d6rod.toString() + ":\n" 
+		}	
+
+		if (d6pm == 1) {
+	        dtotal = dtotal +  "Roll(" + d6rolls.toString() + "d6" + ")-" +  d6rod.toString() + ":\n" 
+		}	
+		
+		for (r=0; r<d6rolls; r++) {
+	       var d6 = Math.floor((Math.random() * 6) + 1);	
+	       d6res = d6res + d6;	
+		   dtotal = dtotal + d6.toString() + ","	
+	  	}
+
+		if (d6pm == 0) {
+	       d6res = d6res + d6rod;	
+		   dtotal = dtotal + "+" + d6rod + "\n" + "Total:" + d6res	
+		}	
+	 
+		if (d6pm == 1) {
+	       d6res = d6res - d6rod;
+		   if (d6res <= minimumvalue) {
+		      d6res = minimumvalue;
+			  }	
+		   dtotal = dtotal + "-" + d6rod + "\n" + "Total:" + d6res	
+		}	
+
+	   document.formulariod6.d6rs.value = d6res;	
+	   rtotal = dtotal + "\n\n" + rtotal;  
+	   document.getElementById('texto').value = rtotal;	
+	}
+	
+	function rolld8() {
+	       
+	   var d8rolls = parseInt(document.formulariod8.d8.value);  
+	   var d8rod = parseInt(document.formulariod8.d8ro.value);  
+	   var dtotal = "";
+	   var d8res = 0;
+	   var rtotal = document.getElementById('texto').value; 
+	  
+	
+		if (document.formulariod8.d8r_1.checked) {
+			d8pm = 0
+		}else{
+			d8pm = 1
+		}
+		
+
+		if (d8pm == 0) {
+	        dtotal = dtotal + "Roll(" + d8rolls.toString() + "d8" + ")+" +  d8rod.toString() + ":\n" 
+		}	
+
+		if (d8pm == 1) {
+	        dtotal = dtotal +  "Roll(" + d8rolls.toString() + "d8" + ")-" +  d8rod.toString() + ":\n" 
+		}	
+		
+		for (r=0; r<d8rolls; r++) {
+	       var d8 = Math.floor((Math.random() * 8) + 1);	
+	       d8res = d8res + d8;	
+		   dtotal = dtotal + d8.toString() + ","	
+	  	}
+
+		if (d8pm == 0) {
+	       d8res = d8res + d8rod;	
+		   dtotal = dtotal + "+" + d8rod + "\n" + "Total:" + d8res	
+		}	
+	 
+		if (d8pm == 1) {
+	       d8res = d8res - d8rod;
+		   if (d8res <= minimumvalue) {
+		      d8res = minimumvalue;
+			  }	
+		   dtotal = dtotal + "-" + d8rod + "\n" + "Total:" + d8res	
+		}	
+
+	   document.formulariod8.d8rs.value = d8res;	
+	   rtotal = dtotal + "\n\n" + rtotal;  
+	   document.getElementById('texto').value = rtotal;	
+	}
+
+	function rolld10() {
+	       
+	   var d10rolls = parseInt(document.formulariod10.d10.value);  
+	   var d10rod = parseInt(document.formulariod10.d10ro.value);  
+	   var dtotal = "";
+	   var d10res = 0;
+	   var rtotal = document.getElementById('texto').value; 
+	  
+	
+		if (document.formulariod10.d10r_1.checked) {
+			d10pm = 0
+		}else{
+			d10pm = 1
+		}
+		
+
+		if (d10pm == 0) {
+	        dtotal = dtotal + "Roll(" + d10rolls.toString() + "d10" + ")+" +  d10rod.toString() + ":\n" 
+		}	
+
+		if (d10pm == 1) {
+	        dtotal = dtotal +  "Roll(" + d10rolls.toString() + "d10" + ")-" +  d10rod.toString() + ":\n" 
+		}	
+		
+		for (r=0; r<d10rolls; r++) {
+	       var d10 = Math.floor((Math.random() * 10) + 1);	
+	       d10res = d10res + d10;	
+		   dtotal = dtotal + d10.toString() + ","	
+	  	}
+
+		if (d10pm == 0) {
+	       d10res = d10res + d10rod;	
+		   dtotal = dtotal + "+" + d10rod + "\n" + "Total:" + d10res	
+		}	
+	 
+		if (d10pm == 1) {
+	       d10res = d10res - d10rod;
+		   if (d10res <= minimumvalue) {
+		      d10res = minimumvalue;
+			  }	
+		   dtotal = dtotal + "-" + d10rod + "\n" + "Total:" + d10res	
+		}	
+
+	   document.formulariod10.d10rs.value = d10res;	
+	   rtotal = dtotal + "\n\n" + rtotal;  
+	   document.getElementById('texto').value = rtotal;	
+	}
+
+	function rolld100() {
+	       
+	   var d100rolls = parseInt(document.formulariod100.d100.value);  
+	   var d100rod = parseInt(document.formulariod100.d100ro.value);  
+	   var dtotal = "";
+	   var d100res = 0;
+	   var rtotal = document.getElementById('texto').value; 
+	  
+	
+		if (document.formulariod100.d100r_1.checked) {
+			d100pm = 0
+		}else{
+			d100pm = 1
+		}
+		
+
+		if (d100pm == 0) {
+	        dtotal = dtotal + "Roll(" + d100rolls.toString() + "d100" + ")+" +  d100rod.toString() + ":\n" 
+		}	
+
+		if (d100pm == 1) {
+	        dtotal = dtotal +  "Roll(" + d100rolls.toString() + "d100" + ")-" +  d100rod.toString() + ":\n" 
+		}	
+		
+		for (r=0; r<d100rolls; r++) {
+	       var d100 = Math.floor((Math.random() * 100) + 1);	
+	       d100res = d100res + d100;	
+		   dtotal = dtotal + d100.toString() + ","	
+	  	}
+
+		if (d100pm == 0) {
+	       d100res = d100res + d100rod;	
+		   dtotal = dtotal + "+" + d100rod + "\n" + "Total:" + d100res	
+		}	
+	 
+		if (d100pm == 1) {
+	       d100res = d100res - d100rod;
+		   if (d100res <= minimumvalue) {
+		      d100res = minimumvalue;
+			  }	
+		   dtotal = dtotal + "-" + d100rod + "\n" + "Total:" + d100res	
+		}	
+
+	   document.formulariod100.d100rs.value = d100res;	
+	   rtotal = dtotal + "\n\n" + rtotal;  
+	   document.getElementById('texto').value = rtotal;	
+	}
+
+	function rolld12() {
+	       
+	   var d12rolls = parseInt(document.formulariod12.d12.value);  
+	   var d12rod = parseInt(document.formulariod12.d12ro.value);  
+	   var dtotal = "";
+	   var d12res = 0;
+	   var rtotal = document.getElementById('texto').value; 
+	  
+	
+		if (document.formulariod12.d12r_1.checked) {
+			d12pm = 0
+		}else{
+			d12pm = 1
+		}
+		
+
+		if (d12pm == 0) {
+	        dtotal = dtotal + "Roll(" + d12rolls.toString() + "d12" + ")+" +  d12rod.toString() + ":\n" 
+		}	
+
+		if (d12pm == 1) {
+	        dtotal = dtotal +  "Roll(" + d12rolls.toString() + "d12" + ")-" +  d12rod.toString() + ":\n" 
+		}	
+		
+		for (r=0; r<d12rolls; r++) {
+	       var d12 = Math.floor((Math.random() * 12) + 1);	
+	       d12res = d12res + d12;	
+		   dtotal = dtotal + d12.toString() + ","	
+	  	}
+
+		if (d12pm == 0) {
+	       d12res = d12res + d12rod;	
+		   dtotal = dtotal + "+" + d12rod + "\n" + "Total:" + d12res	
+		}	
+	 
+		if (d12pm == 1) {
+	       d12res = d12res - d12rod;
+		   if (d12res <= minimumvalue) {
+		      d12res = minimumvalue;
+			  }	
+		   dtotal = dtotal + "-" + d12rod + "\n" + "Total:" + d12res	
+		}	
+
+	   document.formulariod12.d12rs.value = d12res;	
+	   rtotal = dtotal + "\n\n" + rtotal;  
+	   document.getElementById('texto').value = rtotal;	
+	}
+
+		function rolld20() {
+	       
+	   var d20rolls = parseInt(document.formulariod20.d20.value);  
+	   var d20rod = parseInt(document.formulariod20.d20ro.value);  
+	   var dtotal = "";
+	   var d20res = 0;
+	   var rtotal = document.getElementById('texto').value; 
+	  
+	
+		if (document.formulariod20.d20r_1.checked) {
+			d20pm = 0
+		}else{
+			d20pm = 1
+		}
+		
+
+		if (d20pm == 0) {
+	        dtotal = dtotal + "Roll(" + d20rolls.toString() + "d20" + ")+" +  d20rod.toString() + ":\n" 
+		}	
+
+		if (d20pm == 1) {
+	        dtotal = dtotal +  "Roll(" + d20rolls.toString() + "d20" + ")-" +  d20rod.toString() + ":\n" 
+		}	
+		
+		for (r=0; r<d20rolls; r++) {
+	       var d20 = Math.floor((Math.random() * 20) + 1);	
+	       d20res = d20res + d20;	
+		   dtotal = dtotal + d20.toString() + ","	
+	  	}
+
+		if (d20pm == 0) {
+	       d20res = d20res + d20rod;	
+		   dtotal = dtotal + "+" + d20rod + "\n" + "Total:" + d20res	
+		}	
+	 
+		if (d20pm == 1) {
+	       d20res = d20res - d20rod;
+		   if (d20res <= minimumvalue) {
+		      d20res = minimumvalue;
+			  }	
+		   dtotal = dtotal + "-" + d20rod + "\n" + "Total:" + d20res	
+		}	
+
+	   document.formulariod20.d20rs.value = d20res;	
+	   rtotal = dtotal + "\n\n" + rtotal;  
+	   document.getElementById('texto').value = rtotal;	
+	}
+
+	function rolldX() {
+	       
+	   var dXcaras = parseInt(document.formulariodX.dX1.value);
+	   var dXrolls = parseInt(document.formulariodX.dX2.value);  
+	   var dXrod = parseInt(document.formulariodX.dXro.value);  
+	   var dtotal = "";
+	   var dXres = 0;
+	   var rtotal = document.getElementById('texto').value; 
+	  
+	
+		if (document.formulariodX.dXr_1.checked) {
+			dXpm = 0
+		}else{
+			dXpm = 1
+		}
+		
+
+		if (dXpm == 0) {
+	        dtotal = dtotal + "Roll(" + dXrolls.toString() + "d" + dXcaras + ")+" +  dXrod.toString() + ":\n" 
+		}	
+
+		if (dXpm == 1) {
+	        dtotal = dtotal +  "Roll(" + dXrolls.toString() + "d" + dXcaras + ")-" +  dXrod.toString() + ":\n" 
+		}	
+		
+		for (r=0; r<dXrolls; r++) {
+	       var dX = Math.floor((Math.random() * dXcaras ) + 1);	
+	       dXres = dXres + dX;	
+		   dtotal = dtotal + dX.toString() + ","	
+	  	}
+
+		if (dXpm == 0) {
+	       dXres = dXres + dXrod;	
+		   dtotal = dtotal + "+" + dXrod + "\n" + "Total:" + dXres	
+		}	
+	 
+		if (dXpm == 1) {
+	       dXres = dXres - dXrod;
+		   if (dXres <= minimumvalue) {
+		      dXres = minimumvalue;
+			  }	
+		   dtotal = dtotal + "-" + dXrod + "\n" + "Total:" + dXres	
+		}	
+
+	   document.formulariodX.dXrs.value = dXres;	
+	   rtotal = dtotal + "\n\n" + rtotal;  
+	   document.getElementById('texto').value = rtotal;	
+	}
+
+
+	</script>
+</head>
+
+
+<body class="">
+	<div class="container">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		  <a class="navbar-brand text-center" href="#">Proyecto final</a>  
+		</nav>
+	</div>
+
+	<div class="container-fluid">
+	  	<div class="container-fluid">
+	  		<div class="row">
+	  			<div class="col">
+	  				<hr>
+	  				<h1 class="text-center">
+	  					Proyecto final
+	  				</h1>
+	  				<hr>
+	  			</div>
+	  		</div>
+		  <div class="row"> 
+
+		    <div class="col-sm-9">
+		    	
+			      	<table class="table table-striped table-bordered">
+						  <thead class="thead-dark">
+						    <tr>
+						      <th scope="col">Die</th>
+						      <th scope="col">Nbr</th>
+						      <th scope="col">+</th>
+						      <th scope="col">-</th>
+						      <th>Modifer</th>
+						      <th></th>
+						      <th>Results</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						  	<!-- d4 -->
+							<form method="post" action="" name="formulariod4" onclick="return validate(event)">
+						    <tr>
+						      <th>		
+						      	<img src="dado.png" onmouseover="rezice(this)" onmouseout="original(this)" style="width: 20%;" onclick="rolld4()">
+						      </th>
+						      <td>
+						      	<input type="number" id="d4" name="d4" value="1">
+						      	<label>d4</label>
+						      </td>
+						      <td>
+						      	<input type="radio" value="suma" id="d4r_1" name="d4r" checked="">
+						      </td>
+						      <td>
+						      	<input type="radio" value="resta" id="d4r_2" name="d4r">
+						      </td>
+						      <td>
+						      	<input type="number" value="0" name="d4ro" id="d4ro">
+						      </td>
+						      <td>
+						      	<button type="button" id="btnd4" onclick="rolld4()" class="btn btn-info">
+						      		Roll
+						      	</button>
+						      </td>
+						      <td>
+						      	<input type="number" name="d4rs" id="d4rs">
+						      </td>
+						    </tr> 
+						    </form>
+						    <!-- d6 -->
+						    <form method="post" action="" name="formulariod6" onclick="return validate(event)">
+						    <tr>
+						      <th>
+						      	<img src="dado.png" onmouseover="rezice(this)" onmouseout="original(this)" style="width: 20%;" onclick="rolld6()">
+						      </th>
+						      <td>
+						      	<input type="number" id="d6" name="d6" value="1">
+						      	<label>d6</label>
+						      </td>
+						      <td>
+						      	<input type="radio" value="suma" id="d6r_1" name="d6r" checked="">
+						      </td>
+						      <td>
+						      	<input type="radio" value="resta" id="d6r_2" name="d6r">
+						      </td>
+						      <td>
+						      	<input type="number" name="d6ro" value="0" id="d6ro">
+						      </td>
+						      <td>
+						      	<button type="button" id="btnd6" class="btn btn-info" onclick="rolld6()">
+						      		Roll
+						      	</button>
+						      </td>
+						      <td>
+						      	<input type="number" name="d6rs" id="d6rs">
+						      </td>
+						    </tr>
+						    </form>
+						    <!-- d8 -->
+						    <form method="post" action="" name="formulariod8" onclick="return validate(event)">
+						    <tr>
+						      <th>
+						      	<img src="dado.png" onmouseover="rezice(this)" onmouseout="original(this)" style="width: 20%;" onclick="rolld8()">
+						      </th>
+						      <td>
+						      	<input type="number" id="d8" name="d8" value="1">
+						      	<label>d8</label>
+						      </td>
+						      <td>
+						      	<input type="radio" value="suma" id="d8r_1" name="d8r" checked="">
+						      </td>
+						      <td>
+						      	<input type="radio" value="resta" id="d8r_2" name="d8r">
+						      </td>
+						      <td>
+						      	<input type="number" value="0" name="d8ro" id="d8ro">
+						      </td>
+						      <td>
+						      	<button type="button" id="btnd8" class="btn btn-info" onclick="rolld8()">
+						      		Roll
+						      	</button>
+						      </td>
+						      <td>
+						      	<input type="number" name="d8rs" id="d8rs">
+						      </td>
+						    </tr> 
+							</form>
+						    <!-- d10 -->
+						    <form method="post" action="" name="formulariod10" onclick="return validate(event)">
+						    <tr>
+						      <th>
+						      	<img src="dado.png" onmouseover="rezice(this)" onmouseout="original(this)" style="width: 20%;" onclick="rolld10()">
+						      </th>
+						      <td>
+						      	<input type="number" id="d10" name="d10" value="1">
+						      	<label>d10</label>
+						      </td>
+						      <td>
+						      	<input type="radio" value="suma" id="d10r_1" name="d10r" checked="">
+						      </td>
+						      <td>
+						      	<input type="radio" value="resta" id="d10r_2" name="d10r">
+						      </td>
+						      <td>
+						      	<input type="number" value="0" name="d10ro" id="d10ro">
+						      </td>
+						      <td>
+						      	<button type="button" id="btnd10" class="btn btn-info" onclick="rolld10()">
+						      		Roll
+						      	</button>
+						      </td>
+						      <td>
+						      	<input type="number" name="d10rs" id="d10rs">
+						      </td>
+						    </tr> 
+							</form>
+						    <!-- d100 -->
+						    <form method="post" action="" name="formulariod100" onclick="return validate(event)">
+						    <tr>
+						      <th>
+						      	<img src="dado.png" onmouseover="rezice(this)" onmouseout="original(this)" style="width: 20%;" onclick="rolld100()">
+						      </th>
+						      <td>
+						      	<input type="number" id="d100" name="d100" value="1">
+						      	<label>d100</label>
+						      </td>
+						      <td>
+						      	<input type="radio" value="suma" id="d100r_1" name="d100r" checked="">
+						      </td>
+						      <td>
+						      	<input type="radio" value="resta" id="d100r_2" name="d100r">
+						      </td>
+						      <td>
+						      	<input type="number" value="0" name="d100ro" id="d8ro">
+						      </td>
+						      <td>
+						      	<button type="button" id="v" class="btn btn-info" onclick="rolld100()">
+						      		Roll
+						      	</button>
+						      </td>
+						      <td>
+						      	<input type="number" name="d100rs" id="d100rs">
+						      </td>
+						    </tr> 
+							</form>
+						    <!-- d12 -->
+						    <form method="post" action="" name="formulariod12" onclick="return validate(event)">
+						    <tr>
+						      <th>
+						      	<img src="dado.png" onmouseover="rezice(this)" onmouseout="original(this)" style="width: 20%;" onclick="rolld12()">
+						      </th>
+						      <td>
+						      	<input type="number" id="d12" name="d12" value="1">
+						      	<label>d12</label>
+						      </td>
+						      <td>
+						      	<input type="radio" value="suma" id="d12r_1" name="d12r" checked="">
+						      </td>
+						      <td>
+						      	<input type="radio" value="resta" id="d12r_2" name="d12r">
+						      </td>
+						      <td>
+						      	<input value="0" type="number" name="d12ro" id="d12ro">
+						      </td>
+						      <td>
+						      	<button type="button" id="btnd12" class="btn btn-info" onclick="rolld12()">
+						      		Roll
+						      	</button>
+						      </td>
+						      <td>
+						      	<input type="number" name="d12rs" id="d12rs">
+						      </td>
+						    </tr> 
+							</form>
+						    <!-- d20 -->
+						    <form method="post" action="" name="formulariod20" onclick="return validate(event)">
+						    <tr>
+						      <th>
+						      	<img src="dado.png" onmouseover="rezice(this)" onmouseout="original(this)" style="width: 20%;" onclick="rolld20()">
+						      </th>
+						      <td>
+						      	<input type="number" id="d20" name="d20" value="1">
+						      	<label>d20</label>
+						      </td>
+						      <td>
+						      	<input type="radio" value="suma" id="d20r_1" name="d20r" checked="">
+						      </td>
+						      <td>
+						      	<input type="radio" value="resta" id="d20r_2" name="d20r">
+						      </td>
+						      <td>
+						      	<input value="0" type="number" name="d20ro" id="d20ro">
+						      </td>
+						      <td>
+						      	<button type="button" id="btnd20" class="btn btn-info" onclick="rolld20()">
+						      		Roll
+						      	</button>
+						      </td>
+						      <td>
+						      	<input type="number" name="d20rs" id="d20rs">
+						      </td>
+						    </tr> 
+							</form>
+						    <!-- dX -->
+						    <form method="post" action="" name="formulariodX" onclick="return validate(event)">
+						    <tr>
+						      <th>
+						      	<input type="number" id="dX1" name="dX1" value="1"> 
+						      </th>
+						      <td>
+						      	<input type="number" id="dX2" name="dX2" value="1">
+						      	<label>dX</label>
+						      </td>
+						      <td>
+						      	<input type="radio" value="suma" id="dXr_1" name="dXr" checked="">
+						      </td>
+						      <td>
+						      	<input type="radio" value="resta" id="dXr_2" name="dXr">
+						      </td>
+						      <td>
+						      	<input value="0" type="number" name="dXro" id="dXro">
+						      </td>
+						      <td>
+						      	<button type="button" id="btndx" class="btn btn-info" onclick="rolldX()">
+						      		Roll
+						      	</button>
+						      </td>
+						      <td>
+						      	<input type="number" name="dXrs" id="dXrs">
+						      </td>
+						    </tr> 
+							</form>
+						  </tbody>
+						</table>
+				
+		    </div>
+		    <div class="col-sm-2">
+		    	<div class="col-sm">
+		    		<textarea rows="20" class="form-control" id="texto" name="texto" placeholder="          NOTES
+-------------------------
+This field records your latest roll at its top.
+
+Modified results that would produce a number less than one display as one." ></textarea>
+
+				<a href="" class="btn btn-danger">Reset</a>
+		    	</div>
+		    </div>
+
+		  </div>
+		</div>
+	</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>
